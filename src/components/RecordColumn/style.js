@@ -9,6 +9,7 @@ export const style = StyleSheet.create({
         borderWidth: 2,
         borderRadius: 4,
         marginHorizontal: 20,
+        marginVertical: 8,
         paddingVertical: 4,
         paddingHorizontal: 10
     },
@@ -17,17 +18,15 @@ export const style = StyleSheet.create({
         justifyContent: "space-between",
         alignItems:"center",
         height: 50,
-        borderWidth: 1,
         paddingHorizontal: 4,
     },
     dateGroupRecordItemName: {
         ...globalStyle.MediumFont
     },
     dateGroupRecordItemPrice: {
-        ...globalStyle.MediumFont
+        ...globalStyle.MediumFont,
     },
     dateGroupRecordContainer: {
-        backgroundColor: "red"
     },
     divider: {
         backgroundColor: globalColor.inverseColor,
@@ -37,7 +36,8 @@ export const style = StyleSheet.create({
     },
     dateGroupHeader: {
         flexDirection: "row",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        paddingVertical: 6,
     },
     dateGroupHeaderDate: {
         ...globalStyle.LargeFont,

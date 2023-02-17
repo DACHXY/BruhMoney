@@ -2,19 +2,24 @@ import { Text, View, ScrollView } from 'react-native';
 import { style } from './style'; 
 import { globalStyle, globalColor } from '../../global/style';
 import RecordColumn from '../../components/RecordColumn';
+import AddRecordButton from "../../components/AddRecordButton";
+import { DrawerName } from '../../navigation/main';
 
 const DummyData = {
     expense: 10,
     income: 44
 }
 
-function HomePage () {
-    const containerMix = {...globalStyle.container, ...style.container};
+function HomePage ({ navigation }) {
+    function AddButtonOnPress() {
+        navigation.navigate(DrawerName.setting)
+    }
     return (
-        <ScrollView 
-            style={containerMix}
+        <View 
+            style={[globalStyle.container, style.container]}
             contentInsetAdjustmentBehavior='automatic'
         >
+            <AddRecordButton onPress={AddButtonOnPress} />
             <View style={style.overview}>
                 <View>
                     <Text style={style.expense}>月支出</Text>
@@ -25,10 +30,10 @@ function HomePage () {
                     <Text style={globalStyle.generalFont}>{`$${DummyData.income}`}</Text>
                 </View>
             </View>
-            <View>
+            <View style={{flexDirection: 'column', backgroundColor:"red"}}>
                 <RecordColumn/>
             </View>
-        </ScrollView>
+        </View>
     )
 }
 
