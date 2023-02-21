@@ -1,8 +1,8 @@
 import { Text, View, TouchableOpacity } from 'react-native';
 import { style } from './style';
 import { globalStyle, globalColor } from '../../global/style';
-import RecordColumn from '../../components/RecordColumn';
-import AddRecordButton from "../../components/AddRecordButton";
+import RecordColumn from '../../components/recordColumn';
+import AddRecordButton from "../../components/addRecordButton";
 import { DrawerName } from '../../navigation/main';
 
 const DummyData = {
@@ -12,8 +12,10 @@ const DummyData = {
 
 function HomePage({ navigation }) {
     function AddButtonOnPress() {
-        navigation.navigate(DrawerName.setting)
+        console.log("Add button Pressed!")
+        navigation.push(DrawerName.addRecord)
     }
+
     return (
         <View
             style={[globalStyle.container, style.container]}
@@ -26,10 +28,11 @@ function HomePage({ navigation }) {
                     <Text style={globalStyle.generalFont}>{`$${DummyData.expense}`}</Text>
                 </View>
                 <View>
-                    <RecordColumn />
+                    <Text style={style.income}>月收入</Text>
+                    <Text style={globalStyle.generalFont}>{`$${DummyData.income}`}</Text>
                 </View>
             </View>
-            <View style={{ flexDirection: 'column', backgroundColor: "red" }}>
+            <View>
                 <RecordColumn />
             </View>
         </View>

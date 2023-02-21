@@ -1,8 +1,8 @@
 import { TouchableWithoutFeedback } from 'react-native';
 
 // Pages
-import HomePage from '../pages/home';
 import SettingPage from '../pages/setting';
+import HomeNav from './home/homeNav';
 
 // Icon
 import Icon from 'react-native-vector-icons/Feather';
@@ -11,18 +11,23 @@ import Icon from 'react-native-vector-icons/Feather';
 import { globalColor, globalStyle } from '../global/style';
 
 import { createDrawerNavigator } from '@react-navigation/drawer';
-
+import PopUpPage from '../pages/popup';
 
 const Drawer = createDrawerNavigator();
 
 export const DrawerName = {
   homePage: "主頁",
-  setting : "設定"
+  setting : "設定",
+  addRecord: "加入資料"
 }
 
 function MainDrawer() {
   function MenuButtonOnPress({navigation}){
     navigation.openDrawer()
+  }
+
+  function BackToLastPage({navigation}) {
+    navigation.navigate(DrawerName.homePage)
   }
 
   return (
@@ -45,7 +50,7 @@ function MainDrawer() {
             </TouchableWithoutFeedback>
           )
         })}>
-      <Drawer.Screen name={DrawerName.homePage} component={HomePage} />
+      <Drawer.Screen name={DrawerName.homePage} component={HomeNav} />
       <Drawer.Screen name={DrawerName.setting} component={SettingPage} />
     </Drawer.Navigator>
   );
