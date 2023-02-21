@@ -79,3 +79,17 @@ export const globalStyle = StyleSheet.create({
         backgroundColor: globalColor.mainColor,
     }
 });
+
+
+export const globalEffect = StyleSheet.create({
+    cardShadow: {
+        shadowColor: '#000',  
+        // ios
+        shadowOffset: {width: 0,height: 0},  
+        shadowOpacity: 1,
+        shadowRadius: 1,  
+
+        //android
+        elevation: 6,
+    }
+})

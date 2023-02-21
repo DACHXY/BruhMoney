@@ -1,6 +1,7 @@
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer  } from '@react-navigation/native';
 import 'react-native-gesture-handler';
 import { StatusBar } from 'react-native';
+
 
 // Color
 import { globalStyle, globalColor } from './src/global/style';
